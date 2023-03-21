@@ -59,8 +59,8 @@ Knowing this, you can reach two basic conclusions:
 
 **Second, always try to add alteast one WHERE clause with a filter by an indexed field.** Check which are the indexed fields of the table you are selecting. To do this, simply **visit the model documentation of the entity and search by "Indexed: True"**. See if there is an indexed field you can add to the filter of the **[WHERE]** clauses to speed up the calculation.
 
-**And third, when you have no choice but to use [FILTER] clauses, you should try to narrow down the list you're returning.** Just apply as many **[WHERE]** clauses as possible to **[SELECT]**. This way, you're filering the list before it's returned to the **[FILTER]** and therefore, it'll contain fewer records, which will lead to a faster calculation.
+**Third, when you have no choice but to use [FILTER] clauses, you should try to narrow down the list you're returning.** Just apply as many **[WHERE]** clauses as possible to **[SELECT]**. This way, you're filering the list before it's returned to the **[FILTER]** and therefore, it'll contain fewer records, which will lead to a faster calculation.
 
-
+**And Fourth, you can also optimize your calculated attribute by using the TOP and ORDERBY operators. The TOP clause allows you to return only the first N elements of the result set, which can significantly speed up the calculation if you only need a subset of the data. Meanwhile, the ORDERBY clause specifies the column or expression on which the query result set is sorted, which can help to organize the data in a way that makes it easier and faster to process. Both of these operators can be used as clauses of the SELECT statement to optimize the speed of your calculated attribute.
 
 Overall, **[SELECT]** is a very powerful tool that needs to be used wisely.
